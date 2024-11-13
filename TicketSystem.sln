@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketSystem", "TicketSystem\TicketSystem.csproj", "{DD55D490-CC6E-4A1C-B219-39AC2754BFD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TS.Domain", "TS.Domain\TS.Domain.csproj", "{DE0DF1E9-2236-4DA5-8374-1E8E931089B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TS.Infrastructure", "TS.Infrastructure\TS.Infrastructure.csproj", "{5461D629-268B-4FB3-BB01-4F4014193A3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD55D490-CC6E-4A1C-B219-39AC2754BFD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD55D490-CC6E-4A1C-B219-39AC2754BFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD55D490-CC6E-4A1C-B219-39AC2754BFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD55D490-CC6E-4A1C-B219-39AC2754BFD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE0DF1E9-2236-4DA5-8374-1E8E931089B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE0DF1E9-2236-4DA5-8374-1E8E931089B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE0DF1E9-2236-4DA5-8374-1E8E931089B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE0DF1E9-2236-4DA5-8374-1E8E931089B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5461D629-268B-4FB3-BB01-4F4014193A3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5461D629-268B-4FB3-BB01-4F4014193A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5461D629-268B-4FB3-BB01-4F4014193A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5461D629-268B-4FB3-BB01-4F4014193A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
