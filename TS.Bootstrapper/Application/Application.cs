@@ -30,7 +30,7 @@ internal class Application : IApplication, IDisposable
         if (_botEngine == null)
             throw new InvalidOperationException("Ядро не инициализировано");
         IsStarted = true;
-        return _botEngine.RunListen(_cancellationTokenSource.Token);
+        return _botEngine.Run(_cancellationTokenSource.Token);
     }
 
     public void Close()

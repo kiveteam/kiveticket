@@ -2,5 +2,5 @@
 
 public interface IBotEngine
 {
-    Task RunListen(CancellationToken cancellationToken);
+    Task Run(CancellationToken cancellationToken);
 }

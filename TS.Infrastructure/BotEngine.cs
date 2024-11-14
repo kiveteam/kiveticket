@@ -22,7 +22,7 @@ internal sealed class BotEngine : IBotEngine
         _botErrorHandler = botErrorHandler;
     }
 
-    public Task RunListen(CancellationToken cancellationToken)
+    public Task Run(CancellationToken cancellationToken)
     {
         var receiverOptions = new ReceiverOptions
         {
