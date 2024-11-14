@@ -32,5 +32,6 @@ public class ApplicationBootstrapper : IApplicationBootstrapper
     public void Dispose()
     {
         _bootstrapperLifetimeScope.Dispose();
+        GC.SuppressFinalize(this);
     }
 }

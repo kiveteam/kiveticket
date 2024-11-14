@@ -41,15 +41,17 @@ internal class Program : IDisposable
                 case "bot stop":
                 case "bot -s":
                 case "bot -c":
+                    Console.WriteLine("Bot stop in process");
                     application.Close();
-                    Console.WriteLine("Bot was stopped");
                     break;
                 case "bot -h":
                     Console.WriteLine(
-                        "Ticket system bot HELP" +
-                        "======================" +
-                        "bot -h: Help bot\n" +
-                        "bot [-c, -s, stop]: Stop bot");
+                        """
+                        KIVETicket system bot HELP
+                        ======================
+                        bot -h: Help bot
+                        bot [-c, -s, stop]: Stop bot
+                        """);
                     break;
                 default:
                     Console.WriteLine($"Unknown bot command \"{command}\"");
@@ -57,17 +59,20 @@ internal class Program : IDisposable
 
             }
         }
+        Console.WriteLine("Bot was stopped");
     }
 
     private void Process_Exited(object? sender, EventArgs e)
     {
+        Console.WriteLine("Bot stop in process");
         Dispose();
+        Console.WriteLine("Bot was stopped");
+        Environment.Exit(0);
     }
 
     public void Dispose()
     {
         _container?.Dispose();
-        Console.CancelKeyPress -= Process_Exited;
-        AppDomain.CurrentDomain.ProcessExit -= Process_Exited;
+        GC.SuppressFinalize(this);
     }
 }

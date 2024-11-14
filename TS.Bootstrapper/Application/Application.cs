@@ -64,5 +64,6 @@ internal class Application : IApplication, IDisposable
         _applicationLifetimeScope.Dispose();
 
         _logger.Info("Disposed");
+        GC.SuppressFinalize(this);
     }
 }

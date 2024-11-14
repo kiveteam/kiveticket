@@ -68,6 +68,9 @@ internal class BotEngine : IBotEngine
                                 ReplyKeyboardMarkup replyKeyboard = new(
                                     [
                                         [
+                                            new("Вход для администратора"),
+                                        ],
+                                        [
                                             new("Запросить доступ"),
                                         ]
                                     ])
@@ -76,13 +79,18 @@ internal class BotEngine : IBotEngine
                                 };
                                 await botClient.SendMessage(
                                     chat.Id,
-                                    $"{user.Username}, Добро пожаловать в тикет-систему \"KIVETicket\"\n\n" +
-                                    "Вы не зарегистрированы, для того чтобы получить доступ " +
-                                    "нажмите на кнопку \"Запросить доступ\" или введите команду /register",
+                                    "Добро пожаловать в тикет-систему \"KIVETicket\"\n\n" +
+                                    "Вы не зарегистрированы\n" +
+                                    "- Для получения доступа нажмите на кнопку \"Запросить доступ\" или введите команду /register;\n" +
+                                    "- Если вы являетесь администратором, нажмите на кнопку \"Вход для администратора\" или введите команду /admin",
                                     cancellationToken: cancellationToken,
                                     replyMarkup: replyKeyboard);
                             }
                             else if (message.Text.Equals("Запросить доступ") || message.Text.Equals("/register"))
+                            {
+                                await botClient.DeleteMessage(chat.Id, message.Id, cancellationToken);
+                            }
+                            else if (message.Text.Equals("Вход для администратора") || message.Text.Equals("/admin"))
                             {
                                 await botClient.DeleteMessage(chat.Id, message.Id, cancellationToken);
                             }
