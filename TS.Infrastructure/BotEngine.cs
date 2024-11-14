@@ -4,40 +4,39 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
+using TS.Domain;
+using TS.Domain.Factories;
 
-namespace TS;
+namespace TS.Infrastructure;
 
-internal class BotEngine
+internal class BotEngine : IBotEngine
 {
-    private readonly TelegramBotClient _botClient;
-    private readonly DateTime _startedDate;
+    private readonly IFactory<ITelegramBotClient> _botClientFactory;
+    private ITelegramBotClient _botClient;
+    private DateTime _startedDate;
+    private CancellationToken _cancellationToken;
 
-    public BotEngine(TelegramBotClient botClient)
+    public BotEngine(IFactory<ITelegramBotClient> botClientFactory)
     {
-        _botClient = botClient;
-        _startedDate = DateTime.UtcNow;
+        _botClientFactory = botClientFactory;
     }
 
-    public async Task ListenForMessagesAsync()
+    public Task RunListen(CancellationToken cancellationToken)
     {
-        using var cts = new CancellationTokenSource();
-
         var receiverOptions = new ReceiverOptions
         {
-            AllowedUpdates = Array.Empty<UpdateType>() // receive all update types
+            AllowedUpdates = []
         };
 
-        _botClient.StartReceiving(
+        _cancellationToken = cancellationToken;
+        _botClient = _botClientFactory.Create();
+        _startedDate = DateTime.UtcNow;
+        return _botClient.ReceiveAsync(
             updateHandler: HandleUpdateAsync,
             errorHandler: HandlePollingErrorAsync,
             receiverOptions: receiverOptions,
-            cancellationToken: cts.Token
+            cancellationToken: _cancellationToken
         );
-
-        User me = _botClient.GetMe().Result;
-
-        Console.WriteLine($"Start listening for @{me.Username}");
-        Console.ReadLine();
     }
 
     private async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
@@ -79,7 +78,7 @@ internal class BotEngine
                                     chat.Id,
                                     $"{user.Username}, Добро пожаловать в тикет-систему \"KIVETicket\"\n\n" +
                                     "Вы не зарегистрированы, для того чтобы получить доступ " +
-                                    "нажмите на кнопку \"Запросить доступ\" или введите команду /register", 
+                                    "нажмите на кнопку \"Запросить доступ\" или введите команду /register",
                                     cancellationToken: cancellationToken,
                                     replyMarkup: replyKeyboard);
                             }

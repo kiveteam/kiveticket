@@ -5,16 +5,17 @@
 	  <LangVersion>12</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	  <RootNamespace>TS.Infrastructure</RootNamespace>
+	  <RootNamespace>TS.Bootstrapper</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="8.0.0" />
-    <PackageReference Include="Telegram.Bot" Version="22.0.2" />
+	  <PackageReference Include="NLog" Version="5.2.8" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TS.Domain\TS.Domain.csproj" />
+    <ProjectReference Include="..\TS.Infrastructure\TS.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

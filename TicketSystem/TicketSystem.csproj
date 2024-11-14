@@ -10,7 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Telegram.Bot" Version="22.0.2" />
+	  <PackageReference Include="Autofac" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TS.Bootstrapper\TS.Bootstrapper.csproj" />
   </ItemGroup>
 
 </Project>

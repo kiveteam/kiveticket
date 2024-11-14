@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TS.Domain", "TS.Domain\TS.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TS.Infrastructure", "TS.Infrastructure\TS.Infrastructure.csproj", "{5461D629-268B-4FB3-BB01-4F4014193A3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TS.Bootstrapper", "TS.Bootstrapper\TS.Bootstrapper.csproj", "{A2A0BBE0-F0AF-4F6C-A33D-98E0C902A568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5461D629-268B-4FB3-BB01-4F4014193A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5461D629-268B-4FB3-BB01-4F4014193A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5461D629-268B-4FB3-BB01-4F4014193A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2A0BBE0-F0AF-4F6C-A33D-98E0C902A568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2A0BBE0-F0AF-4F6C-A33D-98E0C902A568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2A0BBE0-F0AF-4F6C-A33D-98E0C902A568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2A0BBE0-F0AF-4F6C-A33D-98E0C902A568}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
