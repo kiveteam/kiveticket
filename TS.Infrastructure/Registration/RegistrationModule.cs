@@ -3,6 +3,8 @@ using TS.Domain;
 using TS.Domain.Factories;
 using TS.Infrastructure.Handlers;
 using TS.Infrastructure.Factories;
+using TS.Infrastructure.Commands;
+using TS.Domain.Commands;
 
 namespace TS.Infrastructure.Registration;
 
@@ -36,6 +38,13 @@ public class RegistrationModule : Module
             .InstancePerDependency();
         builder.RegisterType<MessageTypeTextHandler>()
             .As<IMessageTypeHandler>()
+            .InstancePerDependency();
+
+        builder.RegisterType<CommandFactory>()
+            .As<ICommandFactory>()
+            .InstancePerDependency();
+        builder.RegisterType<StartCommand>()
+            .As<ICommand>()
             .InstancePerDependency();
     }
 }
