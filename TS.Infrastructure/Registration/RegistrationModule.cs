@@ -12,5 +12,13 @@ public class RegistrationModule : Module
         builder.RegisterType<BotEngine>()
             .As<IBotEngine>()
             .SingleInstance();
+        
+        builder.RegisterType<BotUpdateHandler>()
+            .As<IBotUpdateHandler>()
+            .InstancePerDependency();
+        
+        builder.RegisterType<BotErrorHandler>()
+            .As<IBotErrorHandler>()
+            .InstancePerDependency();
     }
 }
