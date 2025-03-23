@@ -16,6 +16,6 @@ internal sealed class UpdateHandlerFactory : IUpdateHandlerFactory
     {
         if (_handlers.TryGetValue(type, out IUpdateHandler? command))
             return command;
-        throw new InvalidOperationException($"Обработчик для типа обновления \"{type}\" не найдена");
+        throw new InvalidOperationException($"Обработчик для типа обновления \"{type}\" не найден");
     }
 }

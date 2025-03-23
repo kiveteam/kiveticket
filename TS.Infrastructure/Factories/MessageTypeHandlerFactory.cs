@@ -16,6 +16,6 @@ internal sealed class MessageTypeHandlerFactory : IMessageTypeHandlerFactory
     {
         if (_handlers.TryGetValue(type, out IMessageTypeHandler? command))
             return command;
-        throw new InvalidOperationException($"Обработчик для типа сообщения \"{type}\" не найдена");
+        throw new InvalidOperationException($"Обработчик для типа сообщения \"{type}\" не найден");
     }
 }

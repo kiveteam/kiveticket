@@ -5,7 +5,7 @@ using TS.Domain.Commands;
 
 namespace TS.Infrastructure.Commands;
 
-internal sealed class StartCommand : ICommand
+internal sealed class StartCommand : ICommand 
 {
     public string Type => "/start";
 
